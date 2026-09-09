@@ -462,7 +462,7 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
 
   /* ---------- Personal Portfolio Project ---------- */
 
-  const portfolioGithub = ""; // Paste the GitHub repository URL here
+  const portfolioGithub = "https://github.com/Mohamed-saeid2005/portofolio";
 
   const portfolioProject = {
     name: "Personal Portfolio Website",
@@ -605,7 +605,6 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
           </div>
         )}
 
-        </div>
 
       </header>
 
