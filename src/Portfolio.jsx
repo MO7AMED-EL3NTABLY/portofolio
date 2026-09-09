@@ -16,6 +16,8 @@ import {
   Server,
   Globe,
   Layers,
+  Menu,
+  X,
 } from "lucide-react";
 
 /* ---------- UI helpers ---------- */
@@ -69,6 +71,7 @@ const Card = ({ children }) => (
 export default function Portfolio() {
 
   const [projectCategory, setProjectCategory] = useState("data");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const validPages = [
     "home",
@@ -102,6 +105,8 @@ export default function Portfolio() {
   }, []);
 
   const navigateTo = (targetPage) => {
+    setMobileMenuOpen(false);
+
     if (window.location.hash === `#${targetPage}`) {
       setPage(targetPage);
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -457,7 +462,7 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
 
   /* ---------- Personal Portfolio Project ---------- */
 
-  const portfolioGithub = "https://github.com/Mohamed-saeid2005/portofolio";
+  const portfolioGithub = ""; // Paste the GitHub repository URL here
 
   const portfolioProject = {
     name: "Personal Portfolio Website",
@@ -517,7 +522,6 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
           </button>
 
           <nav className="hidden md:flex gap-6 text-sm items-center">
-
             {[
               ["About", "about"],
               ["Education & Experience", "edu-exp"],
@@ -528,7 +532,6 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
               ["Client Feedback", "testimonials"],
               ["Contact", "contact"],
             ].map(([label, targetPage]) => (
-
               <button
                 key={targetPage}
                 type="button"
@@ -539,19 +542,68 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
               >
                 {label}
               </button>
-
             ))}
-
           </nav>
 
-          <button
-            type="button"
-            onClick={() => navigateTo("contact")}
-            className="inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-sm shadow-sm hover:shadow transition"
-          >
-            <span>Hire me</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => navigateTo("contact")}
+              className="hidden sm:inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-sm shadow-sm hover:shadow transition"
+            >
+              <span>Hire me</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+
+            <button
+              type="button"
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={mobileMenuOpen}
+              onClick={() => setMobileMenuOpen((open) => !open)}
+              className="md:hidden inline-flex items-center justify-center rounded-xl border p-2 shadow-sm hover:shadow transition"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+        </div>
+
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t bg-zinc-950/95 backdrop-blur">
+            <nav className="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-1">
+              {[
+                ["Home", "home"],
+                ["About", "about"],
+                ["Education & Experience", "edu-exp"],
+                ["Services", "services"],
+                ["Skills", "skills"],
+                ["Projects", "projects"],
+                ["Certifications", "certifications"],
+                ["Client Feedback", "testimonials"],
+                ["Contact", "contact"],
+              ].map(([label, targetPage]) => (
+                <button
+                  key={targetPage}
+                  type="button"
+                  onClick={() => navigateTo(targetPage)}
+                  className={`w-full text-left rounded-lg px-3 py-3 text-sm transition-colors hover:bg-white/10 ${
+                    page === targetPage ? "font-semibold bg-white/10" : ""
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+
+              <button
+                type="button"
+                onClick={() => navigateTo("contact")}
+                className="sm:hidden mt-2 inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-3 text-sm shadow-sm hover:shadow transition"
+              >
+                <span>Hire me</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </nav>
+          </div>
+        )}
 
         </div>
 
