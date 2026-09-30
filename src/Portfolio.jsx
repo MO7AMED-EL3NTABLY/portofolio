@@ -80,7 +80,6 @@ export default function Portfolio() {
     "services",
     "skills",
     "projects",
-    "creativa",
     "certifications",
     "testimonials",
     "contact",
@@ -125,7 +124,7 @@ export default function Portfolio() {
   const title = "Full-stack .NET & Data Analyst";
 
   const aboutText =
-    "Commerce student at Kafr El Sheikh University and a Digital Egypt Pioneers Initiative (DEPI) Fellow. I specialize in Full-Stack .NET Web Development using C#, .NET Core Web API, MVC, and SQL Server, alongside Data Analysis using Microsoft Excel and visualization tools. My focus is on combining web technologies and data insights to develop structured, scalable applications and support data-driven decision-making.";
+    "Commerce student at Kafr El Sheikh University and a Digital Egypt Pioneers Initiative (DEPI) Fellow. I completed Round 3 of the Data Analysis Specialist Track and am currently pursuing Round 5 of the Full-Stack .NET Track. I also completed Front-End and Back-End Bootcamps at Creativa Damanhour, including Front-End Round 1 (Advanced). My focus is on combining web development and data analysis to build structured applications and support data-driven decision-making.";
 
   const location = "Kafr Elsheikh, Egypt";
 
@@ -544,7 +543,6 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
               ["Services", "services"],
               ["Skills", "skills"],
               ["Projects", "projects"],
-              ["Creativa_BackEnd", "creativa"],
               ["Certifications", "certifications"],
               ["Client Feedback", "testimonials"],
               ["Contact", "contact"],
@@ -594,7 +592,6 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
                 ["Services", "services"],
                 ["Skills", "skills"],
                 ["Projects", "projects"],
-                ["Creativa_BackEnd", "creativa"],
                 ["Certifications", "certifications"],
                 ["Client Feedback", "testimonials"],
                 ["Contact", "contact"],
@@ -838,6 +835,16 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
 
                   <div className="border-t pt-5 dark:border-zinc-700">
                     <p className="font-medium text-zinc-900 dark:text-zinc-100">
+                      Creativa Damanhour Bootcamps · Completed
+                    </p>
+                    <ul className="mt-2 space-y-2 list-disc list-inside">
+                      <li>Completed the Front-End Bootcamp – Round 1 (Advanced).</li>
+                      <li>Completed the Back-End Bootcamp with practical web development training.</li>
+                    </ul>
+                  </div>
+
+                  <div className="border-t pt-5 dark:border-zinc-700">
+                    <p className="font-medium text-zinc-900 dark:text-zinc-100">
                       Round 5 – Full-Stack .NET Track · Current
                     </p>
                     <ul className="mt-2 space-y-2 list-disc list-inside">
@@ -991,6 +998,16 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
             }`}
           >
             Full Stack .NET Projects
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setProjectCategory("creativa")}
+            className={projectCategory === "creativa"
+              ? "px-5 py-3 rounded-xl font-medium shadow-sm transition-all bg-zinc-900 text-white dark:bg-zinc-100 dark:text-black scale-105"
+              : "px-5 py-3 rounded-xl font-medium shadow-sm transition-all border bg-white/70 dark:bg-zinc-900/50 hover:shadow-md"}
+          >
+            Creativa_BackEnd
           </button>
 
           <button
@@ -1178,6 +1195,66 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
 
         )}
 
+        {/* Creativa_BackEnd Project */}
+
+        {projectCategory === "creativa" && (
+
+          <Card>
+
+            {/* Project Images */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              {[
+                "/elantably_images/creativa_1.jpg",
+                "/elantably_images/creativa_2.jpg",
+                "/elantably_images/creativa_3.jpg",
+              ].map((src, idx) => (
+                <div
+                  key={idx}
+                  className="overflow-hidden rounded-xl border bg-zinc-100 dark:bg-zinc-900"
+                >
+                  <img
+                    src={src}
+                    alt={`Creativa_BackEnd project screenshot ${idx + 1}`}
+                    className="w-full h-56 md:h-48 object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-7">
+              <h3 className="text-xl font-semibold">
+                Creativa_BackEnd Graduation Project
+              </h3>
+
+              <p className="mt-3 text-sm md:text-base text-muted-foreground leading-7">
+                A backend graduation project for a restaurant order management system,
+                including admin authentication, order management, and new order creation
+                workflows. The project was implemented using PHP.
+              </p>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                <Chip>PHP</Chip>
+                <Chip>Back-End Development</Chip>
+                <Chip>Restaurant Order Management</Chip>
+              </div>
+
+              <div className="mt-6">
+                <a
+                  href="https://github.com/Mohamed-saeid2005/Creativa_BackEnd_graduation_project"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-black rounded-xl shadow-md hover:scale-105 transition-transform font-medium"
+                >
+                  View on GitHub
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+
+          </Card>
+
+        )}
+
         {/* Personal Portfolio Website */}
 
         {projectCategory === "portfolio" && (
@@ -1242,65 +1319,6 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
           </Card>
 
         )}
-
-      </Section>
-
-      )}
-
-      {page === "creativa" && (
-
-      <Section
-        id="creativa"
-        title="Creativa_BackEnd"
-        subtitle="Graduation Project"
-      >
-
-        <Card>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            {creativaProject.images.map((src, idx) => (
-              <div
-                key={idx}
-                className="overflow-hidden rounded-xl border bg-zinc-100 dark:bg-zinc-900"
-              >
-                <img
-                  src={src}
-                  alt={`${creativaProject.name} screenshot ${idx + 1}`}
-                  className="w-full h-56 md:h-48 object-cover"
-                />
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-7">
-            <h3 className="text-xl font-semibold">
-              {creativaProject.name}
-            </h3>
-
-            <p className="mt-3 text-sm md:text-base text-muted-foreground leading-7">
-              {creativaProject.description}
-            </p>
-
-            <div className="mt-5 flex flex-wrap gap-2">
-              <Chip>PHP</Chip>
-              <Chip>Backend Development</Chip>
-              <Chip>Restaurant Order Management</Chip>
-            </div>
-
-            <div className="mt-6">
-              <a
-                href={creativaProject.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-black rounded-xl shadow-md hover:scale-105 transition-transform font-medium"
-              >
-                View on GitHub
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-
-        </Card>
 
       </Section>
 
