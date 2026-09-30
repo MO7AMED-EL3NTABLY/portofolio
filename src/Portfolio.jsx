@@ -80,6 +80,7 @@ export default function Portfolio() {
     "services",
     "skills",
     "projects",
+    "creativa",
     "certifications",
     "testimonials",
     "contact",
@@ -494,6 +495,21 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
   };
 
 
+  /* ---------- Creativa BackEnd Project ---------- */
+
+  const creativaProject = {
+    name: "Creativa_BackEnd Graduation Project",
+    description:
+      "A backend graduation project for a restaurant orders management system, including admin authentication, order management, and order creation workflows. The project is implemented using PHP.",
+    images: [
+      "/elantably_images/creativa_1.jpg",
+      "/elantably_images/creativa_2.jpg",
+      "/elantably_images/creativa_3.jpg",
+    ],
+    github:
+      "https://github.com/Mohamed-saeid2005/Creativa_BackEnd_graduation_project",
+  };
+
   /* ---------- Visible Projects ---------- */
 
   const visibleProjects =
@@ -528,6 +544,7 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
               ["Services", "services"],
               ["Skills", "skills"],
               ["Projects", "projects"],
+              ["Creativa_BackEnd", "creativa"],
               ["Certifications", "certifications"],
               ["Client Feedback", "testimonials"],
               ["Contact", "contact"],
@@ -577,6 +594,7 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
                 ["Services", "services"],
                 ["Skills", "skills"],
                 ["Projects", "projects"],
+                ["Creativa_BackEnd", "creativa"],
                 ["Certifications", "certifications"],
                 ["Client Feedback", "testimonials"],
                 ["Contact", "contact"],
@@ -1224,6 +1242,65 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
           </Card>
 
         )}
+
+      </Section>
+
+      )}
+
+      {page === "creativa" && (
+
+      <Section
+        id="creativa"
+        title="Creativa_BackEnd"
+        subtitle="Graduation Project"
+      >
+
+        <Card>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {creativaProject.images.map((src, idx) => (
+              <div
+                key={idx}
+                className="overflow-hidden rounded-xl border bg-zinc-100 dark:bg-zinc-900"
+              >
+                <img
+                  src={src}
+                  alt={`${creativaProject.name} screenshot ${idx + 1}`}
+                  className="w-full h-56 md:h-48 object-cover"
+                />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-7">
+            <h3 className="text-xl font-semibold">
+              {creativaProject.name}
+            </h3>
+
+            <p className="mt-3 text-sm md:text-base text-muted-foreground leading-7">
+              {creativaProject.description}
+            </p>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              <Chip>PHP</Chip>
+              <Chip>Backend Development</Chip>
+              <Chip>Restaurant Order Management</Chip>
+            </div>
+
+            <div className="mt-6">
+              <a
+                href={creativaProject.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-zinc-900 text-white dark:bg-zinc-100 dark:text-black rounded-xl shadow-md hover:scale-105 transition-transform font-medium"
+              >
+                View on GitHub
+                <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+        </Card>
 
       </Section>
 
