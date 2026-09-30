@@ -838,7 +838,7 @@ The project included data cleaning, ETL, data modeling, and Power BI visualizati
                       Creativa Damanhour Bootcamps · Completed
                     </p>
                     <ul className="mt-2 space-y-2 list-disc list-inside">
-                      <li>Completed the Front-End Bootcamp – Round 1 (Advanced).</li>
+                      <li>Completed Front-End Bootcamps – Round 1 and Advanced.</li>
                       <li>Completed the Back-End Bootcamp with practical web development training.</li>
                     </ul>
                   </div>
